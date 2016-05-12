@@ -2,12 +2,18 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class TextDisplayGui : MonoBehaviour
 {
 
     private GameObject _dialogueWindow;
+    private TextCrawler _textCrawler;
+    private DialogueWindowText _dialogueWindowText;
+    private GameObject _dialogChoicePrefab;
 
+
+    // Gonna be lazy about initialization with lazy initialization. Can't trust start to run first anyways.
     private GameObject DialogueWindow 
     { 
         get
@@ -20,9 +26,6 @@ public class TextDisplayGui : MonoBehaviour
         } 
     }
 
-    private TextCrawler _textCrawler;
-
-
     private TextCrawler TextCrawler
     {
         get
@@ -34,8 +37,6 @@ public class TextDisplayGui : MonoBehaviour
             return _textCrawler;
         }
     }
-
-    private DialogueWindowText _dialogueWindowText;
 
     private DialogueWindowText DialogueWindowText
     {
@@ -61,6 +62,7 @@ public class TextDisplayGui : MonoBehaviour
         yield return null;
     }
 
+
     public IEnumerator CrawlText(string text, Action callback)
     {
         yield return StartCoroutine(TextCrawler.TextCrawl(text, DialogueWindowText.SetText));
@@ -75,8 +77,23 @@ public class TextDisplayGui : MonoBehaviour
         yield return null;
     }
 
-    public void ShowChoices(List<string> toList)
+    public void ShowChoices(List<string> choices)
     {
-        
+        if (_dialogChoicePrefab == null)
+        {
+            _dialogChoicePrefab = Resources.Load<GameObject>("Prefabs/Gui/DialogChoiceButton");
+        }
+
+        var initialPosition = GameObject.Find("ChoiceInitialPosition").transform.position;
+
+
+        for (int index = 0; index < choices.Count; index++)
+        {
+            var choice = choices[index];
+            var instance = Instantiate(_dialogChoicePrefab);
+            instance.transform.parent = transform;
+            instance.transform.position = new Vector2(initialPosition.x, initialPosition.y - (48f * index));
+            instance.GetComponentInChildren<Text>().text = choice;
+        }
     }
 }
