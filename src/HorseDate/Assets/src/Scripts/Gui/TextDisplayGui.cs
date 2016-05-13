@@ -52,6 +52,19 @@ public class TextDisplayGui : MonoBehaviour
         }
     }
 
+    private GameObject DialogChoicePrefab
+    {
+        get
+        {
+            if (_dialogChoicePrefab == null)
+            {
+                return _dialogChoicePrefab = Resources.Load<GameObject>("Prefabs/Gui/DialogChoiceButton");
+            }
+
+            return _dialogChoicePrefab;
+        }
+    }
+
     // This is an IEnumerator so we can wait for animations
     public IEnumerator ShowDialogueWindow()
     {
@@ -63,16 +76,6 @@ public class TextDisplayGui : MonoBehaviour
         yield return null;
     }
 
-    public void Start()
-    {
-        _dialogChoicePrefab = Resources.Load<GameObject>("Prefabs/Gui/DialogChoiceButton");
-    }
-
-    //TODO: Figure out where this even goes ugh
-    public void Update()
-    {
-        
-    }
 
     public IEnumerator CrawlText(string text, Action callback)
     {        
@@ -98,6 +101,7 @@ public class TextDisplayGui : MonoBehaviour
 
     public void ShowChoices(List<string> choices, Action<int> onChoice)
     {
+        //TODO: Make this safer~
         var initialPosition = GameObject.Find("ChoiceInitialPosition").transform.position;
 
         var buttons = new List<GameObject>();
@@ -105,7 +109,7 @@ public class TextDisplayGui : MonoBehaviour
         for (int i = 0; i < choices.Count; i++)
         {
             var choice = choices[i];
-            var button = Instantiate(_dialogChoicePrefab);
+            var button = Instantiate(DialogChoicePrefab);
             button.transform.parent = transform;
             button.transform.position = new Vector2(initialPosition.x, initialPosition.y - (48f * i));
             button.GetComponentInChildren<Text>().text = choice;

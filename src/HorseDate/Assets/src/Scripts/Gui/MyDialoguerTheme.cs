@@ -57,12 +57,8 @@ public class MyDialoguerTheme : MonoBehaviour
         {
             if (data.windowType == DialoguerTextPhaseType.Text)
             {
-                var waitForInputRoutine = WaitForInputDown(KeyCode.X, Dialoguer.ContinueDialogue);
-
-                StartCoroutine(waitForInputRoutine);
                 _textDisplayGui.ShowChoices(new List<string>{"Continue"}, i =>
                 {
-                    StopCoroutine(waitForInputRoutine);
                     Dialoguer.ContinueDialogue();
                 });
             }
@@ -76,7 +72,6 @@ public class MyDialoguerTheme : MonoBehaviour
         });
 
         StartCoroutine(crawlTextCoroutine);
-        StartCoroutine(WaitForInputDown(KeyCode.X, _textDisplayGui.SkipTextCrawl));
         StartCoroutine(WaitForInputDown(KeyCode.Mouse0, _textDisplayGui.SkipTextCrawl));
 
 

@@ -2,4 +2,6 @@
 //	Do not modify this file, it will be overwritten by Dialoguer.
 public enum DialoguerDialogues{
 	Intro = 0,
+	SelectHorse = 1,
+	ApproachHorse = 2,
 }
