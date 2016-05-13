@@ -10,7 +10,7 @@ public class TextCrawler : MonoBehaviour
     private string _fullDisplayText;
     private string _currentDisplayText;
     private int _displayIndex = 1;
-    private bool _inProcess;
+    public bool _inProcess;
 
     public string CurrentText = "";
 

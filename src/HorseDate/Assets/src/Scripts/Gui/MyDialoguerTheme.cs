@@ -52,42 +52,34 @@ public class MyDialoguerTheme : MonoBehaviour
 
     private void OnTextPhase(DialoguerTextData data)
     {
-
         // We can probably import our textcrawler for this
         var crawlTextCoroutine = _textDisplayGui.CrawlText(data.text, () =>
         {
             if (data.windowType == DialoguerTextPhaseType.Text)
             {
-                StartCoroutine(WaitForInput(KeyCode.X, Dialoguer.ContinueDialogue));
+                var waitForInputRoutine = WaitForInputDown(KeyCode.X, Dialoguer.ContinueDialogue);
+
+                StartCoroutine(waitForInputRoutine);
+                _textDisplayGui.ShowChoices(new List<string>{"Continue"}, i =>
+                {
+                    StopCoroutine(waitForInputRoutine);
+                    Dialoguer.ContinueDialogue();
+                });
             }
 
             if (data.windowType == DialoguerTextPhaseType.BranchedText)
             {
-                _textDisplayGui.ShowChoices(data.choices.ToList());
-
-
-                var inputRoutines = new List<IEnumerator>();
-
-                Action<int> continueDialog = i =>
-                {
-                    Dialoguer.ContinueDialogue(i);
-                    inputRoutines.ForEach(StopCoroutine);
-                };
-
-                inputRoutines = new List<IEnumerator>
-                {
-                    WaitForInput(KeyCode.Z, () => continueDialog(0)),
-                    WaitForInput(KeyCode.X, () => continueDialog(0)),
-                    WaitForInput(KeyCode.C, () => continueDialog(0)),
-                };
-
-                inputRoutines.ForEach(i => StartCoroutine(i));
+                _textDisplayGui.ShowChoices(data.choices.ToList(), Dialoguer.ContinueDialogue);
             }
 
             
         });
 
         StartCoroutine(crawlTextCoroutine);
+        StartCoroutine(WaitForInputDown(KeyCode.X, _textDisplayGui.SkipTextCrawl));
+        StartCoroutine(WaitForInputDown(KeyCode.Mouse0, _textDisplayGui.SkipTextCrawl));
+
+
         Debug.Log("OnTextPhase: " + data.text);
     }
 
@@ -116,11 +108,20 @@ public class MyDialoguerTheme : MonoBehaviour
         throw new System.NotImplementedException();
     }
 
-    private IEnumerator WaitForInput(KeyCode keycode, Action callback)
+    private IEnumerator WaitForInputDown(KeyCode keycode, Action callback)
     {
+        // If the player was holding the button
+        var buttonPressedOnEnter = Input.GetKey(keycode);        
+        while (buttonPressedOnEnter)
+        {
+            buttonPressedOnEnter = Input.GetKey(keycode);
+
+            yield return null;
+        }
+        
         while (true)
         {
-            if (Input.GetKey(keycode))
+            if (Input.GetKeyDown(keycode))
             {
                 callback();
                 break;
