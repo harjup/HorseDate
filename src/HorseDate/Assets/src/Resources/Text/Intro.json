@@ -1,0 +1,62 @@
+[
+	{
+		"title": "Start",
+		"tags": "",
+		"body": "Hello, and welcome to this wonderful digital game experience. We on the Terrible Gramphics team hope you enjoy learning about horse-related romantic activities.\n\n[[Pick.Gender]]",
+		"position": {
+			"x": 195,
+			"y": 152
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Gender",
+		"tags": "",
+		"body": "I was wondering, what is your gender?\n\n[[Girl|Pick.Gender.Girl]]\n[[Boy|Pick.Gender.Boy]]\n[[Apple|Pick.Gender.Apple]]",
+		"position": {
+			"x": 548,
+			"y": 168
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Gender.Girl",
+		"tags": "",
+		"body": "Ok Miss!!!\n\n[[End]]",
+		"position": {
+			"x": 848,
+			"y": 140
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Gender.Boy",
+		"tags": "",
+		"body": "Ok, mister!!!\n\n[[End]]",
+		"position": {
+			"x": 884,
+			"y": 379
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Gender.Apple",
+		"tags": "",
+		"body": "Woof, might be need to be careful around these horses, then.\n\nThey might get... bitey...\n\n[[End]]",
+		"position": {
+			"x": 850,
+			"y": 626
+		},
+		"colorID": 0
+	},
+	{
+		"title": "End",
+		"tags": "",
+		"body": "Well, let's get on with it!",
+		"position": {
+			"x": 1239,
+			"y": 315
+		},
+		"colorID": 0
+	}
+]

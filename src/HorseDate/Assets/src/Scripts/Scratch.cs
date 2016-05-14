@@ -1,14 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DialoguerCore;
+using Yarn.Unity;
 
 public class Scratch : MonoBehaviour
 {
     public bool IsApple;
 
-	// Update is called once per frame
-	void Update () 
+
+    void Start()
     {
-        IsApple = Dialoguer.GetGlobalBoolean(0);
-	}
+        var runner = FindObjectOfType<DialogueRunner>();
+        var introScript = Resources.Load<TextAsset>("Text/Intro");
+
+        runner.AddScript(introScript);
+
+        runner.StartDialogue("Start");
+    }
 }
