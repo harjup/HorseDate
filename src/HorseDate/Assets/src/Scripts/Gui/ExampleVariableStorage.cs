@@ -24,6 +24,7 @@ SOFTWARE.
 
 */
 
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -122,6 +123,8 @@ public class ExampleVariableStorage : VariableStorageBehaviour
 	// Set a variable's value
     public override void SetValue (string variableName, Yarn.Value value)
     {
+        Debug.Log("Set " + variableName + " to " + value);
+
         // Copy this value into our list
         variables[variableName] = new Yarn.Value(value);
     }

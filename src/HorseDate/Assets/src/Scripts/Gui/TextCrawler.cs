@@ -31,8 +31,6 @@ public class TextCrawler : MonoBehaviour
 
     public IEnumerator TextCrawl(string text, Action<string> textCallBack)
     {
-        Debug.Log("staet TextCrawl");
-
         InitText(text);
 
         _textCallBack = textCallBack;

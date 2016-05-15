@@ -3,10 +3,15 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Yarn;
+using Yarn.Unity;
 
 public class MyYarnTheme : Yarn.Unity.DialogueUIBehaviour
 {
+    private readonly Regex _stringInterpolationRegex = new Regex(@"(\$[A-Za-z_\.]+)");
+
+
     private TextDisplayGui _textDisplayGui;
 
     private TextDisplayGui TextDisplayGui
@@ -26,10 +31,28 @@ public class MyYarnTheme : Yarn.Unity.DialogueUIBehaviour
 		
     public override IEnumerator RunLine(Line line)
     {
+        var text = line.text;
 
+        // TODO: This is currently a hack that gets variable interpolation working
+        // Hopefully this will be officially supported soon!!!
+        // ...or I can eventually do it.
+        var variableStorage = FindObjectOfType<ExampleVariableStorage>();
+        MatchCollection matches = _stringInterpolationRegex.Matches(text);
+        foreach (Match match in matches)
+        {
+            Group group = match.Groups[0];
+            var key = group.Value;
+            Debug.Log(key);
+            
+            var value = variableStorage.GetValue(key);
+            Debug.Log(value);
+
+            text = text.Replace(key, value.AsString);
+        }
+        
         StartCoroutine(WaitForInputDown(KeyCode.Mouse0, TextDisplayGui.SkipTextCrawl));
 
-        yield return StartCoroutine(TextDisplayGui.CrawlText(line.text, () => { Debug.Log("RunLine Done"); }));
+        yield return StartCoroutine(TextDisplayGui.CrawlText(text, () => { Debug.Log("RunLine Done"); }));
 
         var waitingForInput = true;
         TextDisplayGui.ShowChoices(new List<string> { "Continue" }, (i) => { waitingForInput = false; });

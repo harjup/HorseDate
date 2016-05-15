@@ -2,10 +2,10 @@
 	{
 		"title": "Start",
 		"tags": "",
-		"body": "Hello, and welcome to this wonderful digital game experience. We on the Terrible Gramphics team hope you enjoy learning about horse-related romantic activities.\n\n[[Pick.Gender]]",
+		"body": "<<show Background intro>>\n\nHello, and welcome to this wonderful digital game experience. We on the Terrible Gramphics team hope you enjoy learning about horse-related romantic activities.\n\n[[Pick.Gender]]",
 		"position": {
-			"x": 195,
-			"y": 152
+			"x": -886,
+			"y": 188
 		},
 		"colorID": 0
 	},
@@ -14,48 +14,128 @@
 		"tags": "",
 		"body": "I was wondering, what is your gender?\n\n[[Girl|Pick.Gender.Girl]]\n[[Boy|Pick.Gender.Boy]]\n[[Apple|Pick.Gender.Apple]]",
 		"position": {
-			"x": 548,
-			"y": 168
+			"x": -632,
+			"y": 188
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Pick.Gender.Girl",
 		"tags": "",
-		"body": "Ok Miss!!!\n\n[[End]]",
+		"body": "<<set $isGirl to 1>>\n\nOk Miss!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 848,
-			"y": 140
+			"x": -380,
+			"y": 186
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Pick.Gender.Boy",
 		"tags": "",
-		"body": "Ok, mister!!!\n\n[[End]]",
+		"body": "<<set $isBoy to 1>>\n\nOk, mister!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 884,
-			"y": 379
+			"x": -379,
+			"y": 417
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Pick.Gender.Apple",
 		"tags": "",
-		"body": "Woof, might be need to be careful around these horses, then.\n\nThey might get... bitey...\n\n[[End]]",
+		"body": "<<set $isApple to 1>>\n\nWoof, might be need to be careful around these horses, then.\n\nThey might get... bitey...\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 850,
-			"y": 626
+			"x": -374,
+			"y": 716
 		},
 		"colorID": 0
 	},
 	{
 		"title": "End",
 		"tags": "",
-		"body": "Well, let's get on with it!",
+		"body": "<<if $isApple is 1>>\n    Well, let's take our first bite, apple!!\n<<endif>>\n\n<<if $isGirl is 1>>\n    Well, let's get on with it, miss!!\n<<endif>>\n\n<<if $isBoy is 1>>\n    Well, let's get on with it, mister!\n<<endif>>\n\n<<show Background main>>",
 		"position": {
-			"x": 1239,
-			"y": 315
+			"x": 1450,
+			"y": 65
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Horse.Intro",
+		"tags": "",
+		"body": "Next, we need to pick which horse to woo!\n\nWe have quite the spread of choices, hopefully there's one you like!\n\n\n[[Pick.Horse]]",
+		"position": {
+			"x": -92,
+			"y": 188
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Pick.Horse",
+		"tags": "",
+		"body": "Pick a horse!!!\n\n[[Regular Brown Horse|Confirm.Brown]]\n[[Special Striped Horse|Confirm.Striped]]\n[[Bancho Tough Horse|Confirm.Bancho]]",
+		"position": {
+			"x": 164,
+			"y": 193
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Confirm.Brown",
+		"tags": "",
+		"body": "<<set $horse to \"brown\">>\n\nRegular Brown Horse.\nLikes: Apples\nDislikes: Spurs\n\nIs this your choice?\n\n[[Horse.Confirm]]",
+		"position": {
+			"x": 447,
+			"y": 115
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Confirm.Striped",
+		"tags": "",
+		"body": "<<set $horse to \"striped\">>\n\nSpecial Striped Horse\nLikes: Hay\nDislikes: Getting Wet\n\n[[Horse.Confirm]]",
+		"position": {
+			"x": 449,
+			"y": 345
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Confirm.Bancho",
+		"tags": "",
+		"body": "<<set $horse to \"bancho\">>\n\nBancho Tough Horse\nLikes: Violence, Money\nDislikes: Apples\n\n[[Horse.Confirm]]",
+		"position": {
+			"x": 464,
+			"y": 610
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Deny.Horse",
+		"tags": "",
+		"body": "Well in that case...\n\n[[Pick.Horse]]",
+		"position": {
+			"x": 396,
+			"y": -158
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Horse.Picked",
+		"tags": "",
+		"body": "Hmm... \"$horse\", what a good choice!\n\n[[End]]",
+		"position": {
+			"x": 1125,
+			"y": 66
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Horse.Confirm",
+		"tags": "",
+		"body": "Is this your choice?\n\n[[Yes|Horse.Picked]]\n[[No|Deny.Horse]]",
+		"position": {
+			"x": 804,
+			"y": 44
 		},
 		"colorID": 0
 	}
