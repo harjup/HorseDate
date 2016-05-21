@@ -61,6 +61,6 @@ public class Horse : MonoBehaviour
     [YarnCommand("vibrate")]
     public void Vibrate()
     {
-        transform.DOShakePosition(1f, Vector2.one * 5f).SetLoops(-1);
+        transform.DOShakePosition(100f, Vector2.one * 5f, 15).SetLoops(-1);
     }
 }
