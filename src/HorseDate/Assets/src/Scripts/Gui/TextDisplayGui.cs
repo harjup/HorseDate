@@ -111,7 +111,7 @@ public class TextDisplayGui : MonoBehaviour
             var choice = choices[i];
             var button = Instantiate(DialogChoicePrefab);
             button.transform.parent = transform;
-            button.transform.position = new Vector2(initialPosition.x, initialPosition.y - (48f * i));
+            button.transform.position = new Vector2(initialPosition.x, initialPosition.y - ((75 * 1.5f) * i));
             button.GetComponentInChildren<Text>().text = choice;
 
             var choiceIndex = i; // Curse you C# mutability!

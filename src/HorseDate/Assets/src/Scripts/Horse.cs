@@ -32,12 +32,12 @@ public class Horse : MonoBehaviour
     {
         if (position == "center")
         {
-            transform.DOLocalMove(new Vector3(-200, -90, 0), 1f).SetEase(Ease.OutExpo);
+            transform.DOLocalMove(new Vector3(-550, -90, 0), 1f).SetEase(Ease.OutExpo);
         }
 
         if (position == "left")
         {
-            transform.DOLocalMove(new Vector3(-645, -90, 0), 1f).SetEase(Ease.OutExpo);
+            transform.DOLocalMove(new Vector3(-2000, -90, 0), 1f).SetEase(Ease.OutExpo);
         }
     }
 
