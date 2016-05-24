@@ -4,8 +4,8 @@
 		"tags": "",
 		"body": "<<show Background intro>>\n\n<<walk Horse left>>\n\nHello, and welcome to this wonderful digital game experience. We on the Terrible Gramphics team hope you enjoy learning about horse-related romantic activities.\n\n[[Pick.Gender]]",
 		"position": {
-			"x": -226,
-			"y": -478
+			"x": -57,
+			"y": -645
 		},
 		"colorID": 0
 	},
@@ -14,8 +14,8 @@
 		"tags": "",
 		"body": "I was wondering, what is your gender?\n\n[[Girl|Pick.Gender.Girl]]\n[[Boy|Pick.Gender.Boy]]\n[[Apple|Pick.Gender.Apple]]",
 		"position": {
-			"x": 35,
-			"y": -493
+			"x": 204,
+			"y": -660
 		},
 		"colorID": 0
 	},
@@ -24,8 +24,8 @@
 		"tags": "",
 		"body": "<<set $isGirl to 1>>\n\nOk Miss!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 287,
-			"y": -495
+			"x": 456,
+			"y": -662
 		},
 		"colorID": 0
 	},
@@ -34,8 +34,8 @@
 		"tags": "",
 		"body": "<<set $isBoy to 1>>\n\nOk, mister!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 288,
-			"y": -264
+			"x": 457,
+			"y": -431
 		},
 		"colorID": 0
 	},
@@ -44,18 +44,18 @@
 		"tags": "",
 		"body": "<<set $isApple to 1>>\n\nWoof, might be need to be careful around these horses, then.\n\nThey might get... bitey...\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 288,
-			"y": -19
+			"x": 457,
+			"y": -186
 		},
 		"colorID": 0
 	},
 	{
 		"title": "End",
 		"tags": "",
-		"body": "<<if $isApple is 1>>\n    Well, let's take our first bite, apple!!\n<<elseif $isGirl is 1>>\n    Well, let's get on with it, miss!!\n<<elseif $isBoy is 1>>\n    Well, let's get on with it, mister!\n<<endif>>\n\n<<show Background main>>\n\n<<run Dialog field>>",
+		"body": "<<if $isApple is 1>>\n    Well, let's take our first bite, apple!!\n<<elseif $isGirl is 1>>\n    Well, let's get on with it, miss!!\n<<elseif $isBoy is 1>>\n    Well, let's get on with it, mister!\n<<endif>>\n\n<<walk Horse left>>\n\n<<show Background main>>\n\n<<run Dialog field>>",
 		"position": {
-			"x": 2155,
-			"y": -764
+			"x": 2286,
+			"y": -784
 		},
 		"colorID": 0
 	},
@@ -64,8 +64,8 @@
 		"tags": "",
 		"body": "Next, we need to pick which horse to woo!\n\nWe have quite the spread of choices, hopefully there's one you like!\n\n\n[[Pick.Horse]]",
 		"position": {
-			"x": 575,
-			"y": -493
+			"x": 744,
+			"y": -660
 		},
 		"colorID": 0
 	},
@@ -74,8 +74,8 @@
 		"tags": "",
 		"body": "Pick a horse!!!\n\n[[Regular Brown Horse|Confirm.Brown]]\n[[Special Striped Horse|Confirm.Striped]]\n[[Bancho Tough Horse|Confirm.Bancho]]",
 		"position": {
-			"x": 864,
-			"y": -490
+			"x": 1033,
+			"y": -657
 		},
 		"colorID": 0
 	},
@@ -84,8 +84,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"brown\">>\n\n<<walk Horse center>>\n<<switch Horse brown>>\n\nRegular Brown Horse.\nLikes: Apples\nDislikes: Spurs\n\nIs this your choice?\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 1114,
-			"y": -566
+			"x": 1283,
+			"y": -733
 		},
 		"colorID": 0
 	},
@@ -94,8 +94,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"striped\">>\n\n<<walk Horse center>>\n<<switch Horse striped>>\n\nSpecial Striped Horse\nLikes: Hay\nDislikes: Getting Wet\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 1116,
-			"y": -336
+			"x": 1285,
+			"y": -503
 		},
 		"colorID": 0
 	},
@@ -104,8 +104,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"bancho\">>\n\n<<walk Horse center>>\n<<switch Horse bancho>>\n\nBancho Tough Horse\nLikes: Violence, Money\nDislikes: Apples\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 1131,
-			"y": -71
+			"x": 1300,
+			"y": -238
 		},
 		"colorID": 0
 	},
@@ -114,8 +114,8 @@
 		"tags": "",
 		"body": "Well in that case...\n\n<<walk Horse left>>\n\n[[Pick.Horse]]",
 		"position": {
-			"x": 1063,
-			"y": -839
+			"x": 1232,
+			"y": -1006
 		},
 		"colorID": 0
 	},
@@ -124,8 +124,8 @@
 		"tags": "",
 		"body": "Hmm... \"$horse\", what a good choice!\n\n<<vibrate Horse>>\n\n[[End]]",
 		"position": {
-			"x": 1792,
-			"y": -615
+			"x": 1961,
+			"y": -782
 		},
 		"colorID": 0
 	},
@@ -134,8 +134,8 @@
 		"tags": "",
 		"body": "Is this your choice?\n\n[[Yes|Horse.Picked]]\n[[No|Deny.Horse]]",
 		"position": {
-			"x": 1471,
-			"y": -637
+			"x": 1640,
+			"y": -804
 		},
 		"colorID": 0
 	},
@@ -144,8 +144,8 @@
 		"tags": "",
 		"body": "Alright! Here we are! An idyllic field. Perfect for meeting a horse.\n\n<<fade SmallHorse in>>\n\nThere's figure in the distance, grazing. Could it be? Your dream horse?\n\n[[Slow Approach|Approach.Slow]]\n[[Sprint At Horse Screaming|Approach.Fast]]\n\n\n<<if $isApple is 1>>\n    [[Act Natural|Approach.Apple]]\n<<else>>\n    [[Pretend to be an Apple|Approach.Apple]]\n<<endif>>\n",
 		"position": {
-			"x": -224,
-			"y": 446
+			"x": -55,
+			"y": 279
 		},
 		"colorID": 0
 	},
@@ -154,8 +154,8 @@
 		"tags": "",
 		"body": "<<set $approach to \"slow\">>\n\nYou slowly and quietly approach the horse, making sure not to spook them...\n\n[[Approach.Picked.Branch]]",
 		"position": {
-			"x": 88,
-			"y": 289
+			"x": 257,
+			"y": 122
 		},
 		"colorID": 0
 	},
@@ -164,8 +164,8 @@
 		"tags": "",
 		"body": "<<shake Screen>>\n\n<<set $approach to \"fast\">>\n\nYOU RUN AND SCREAM AT THE HORSE TO ESTABLISH DOMINENCE.\n\n[[Approach.Picked.Branch]]",
 		"position": {
-			"x": 134,
-			"y": 518
+			"x": 303,
+			"y": 351
 		},
 		"colorID": 0
 	},
@@ -174,8 +174,8 @@
 		"tags": "",
 		"body": "<<set $approach to \"apple\">>\r\n\r\nYou curl up into a ball and try to look as red and applish as you can. \r\n\r\nThe horse approaches.\r\n\r\n[[Approach.Picked.Branch]]",
 		"position": {
-			"x": 107,
-			"y": 767
+			"x": 276,
+			"y": 600
 		},
 		"colorID": 0
 	},
@@ -184,8 +184,8 @@
 		"tags": "",
 		"body": "<<if $horse == \"horse\">>\n    [[Approach.Picked]]\n<<else>>\n    [[Approach.NotPicked]]\n<<endif>>",
 		"position": {
-			"x": 482,
-			"y": 477
+			"x": 651,
+			"y": 310
 		},
 		"colorID": 0
 	},
@@ -194,8 +194,8 @@
 		"tags": "",
 		"body": "It's the brown horse. So stunning, in their beauty. You wonder how it's possible\r\nAnything could be so horse, or so brown.\r\n\r\n[[Approach.Effect.Branch]]",
 		"position": {
-			"x": 810,
-			"y": 311
+			"x": 979,
+			"y": 144
 		},
 		"colorID": 0
 	},
@@ -204,8 +204,8 @@
 		"tags": "",
 		"body": "Oh, it's the brown horse. It turns out your previous choice didn't matter.\r\nThe cracks are appearing in the illusion of choice, oh no!!!\r\n\r\n[[Approach.Effect.Branch]]",
 		"position": {
-			"x": 797,
-			"y": 579
+			"x": 966,
+			"y": 412
 		},
 		"colorID": 0
 	},
@@ -214,38 +214,78 @@
 		"tags": "",
 		"body": "<<if $approach == \"slow\">>\n    [[Approach.Effect.Slow]]\n<<elseif $approach == \"fast\">>\n    [[Approach.Effect.Fast]]\n<<elseif $approach == \"apple\">>\n    [[Approach.Effect.Apple]]\n<<endif>>\n\n// gonna throw a default here in case it isn't set right\n[[Approach.Effect.Slow]]\n\n",
 		"position": {
-			"x": 1099,
-			"y": 473
+			"x": 1245,
+			"y": 304
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Approach.Effect.Slow",
 		"tags": "",
-		"body": "~Slow effect",
+		"body": "The slow approach paid off. The horse is not spooked at all.\r\n// -> Show bullshit stat about their spookedness being low\r\n\r\n[[Offer.Gift]]",
 		"position": {
-			"x": 1366,
-			"y": 305
+			"x": 1516,
+			"y": 138
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Approach.Effect.Fast",
 		"tags": "",
-		"body": "~Fast Effect",
+		"body": "The horse's spooked stat goes through the roof, activating their mega fear mode.\r\nThis shouldn't affect anything, other than them violently shaking.\r\n// VIOLENTLY SHAKE!!\r\n// Maybe sweat particles\r\n\r\n[[Offer.Gift]]",
 		"position": {
-			"x": 1385,
-			"y": 535
+			"x": 1530,
+			"y": 368
 		},
 		"colorID": 0
 	},
 	{
 		"title": "Approach.Effect.Apple",
 		"tags": "",
-		"body": "~Apple Effect",
+		"body": "The horse approaches you and starts licking you. \r\n\r\nYou find this quite enjoyable, until they bite your head off and you die. \r\n\r\nBeing an apple near a horse is a very dangerous game.\r\n\r\nBAD END.",
 		"position": {
-			"x": 1381,
-			"y": 758
+			"x": 1548,
+			"y": 601
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Offer.Gift",
+		"tags": "",
+		"body": "You decide to further woo this horse with a little gift. Now which one to pick…\r\n\r\n<<show gift_choices>>",
+		"position": {
+			"x": 1845,
+			"y": 224
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Offer.Apple",
+		"tags": "",
+		"body": "They like your gift",
+		"position": {
+			"x": 2235,
+			"y": 15
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Offer.Hat",
+		"tags": "",
+		"body": "They like your gift",
+		"position": {
+			"x": 2237,
+			"y": 230
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Offer.Baby",
+		"tags": "",
+		"body": "They like your gift",
+		"position": {
+			"x": 2241,
+			"y": 446
 		},
 		"colorID": 0
 	}
