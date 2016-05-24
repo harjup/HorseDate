@@ -4,8 +4,8 @@
 		"tags": "",
 		"body": "<<show Background intro>>\n\n<<walk Horse left>>\n\nHello, and welcome to this wonderful digital game experience. We on the Terrible Gramphics team hope you enjoy learning about horse-related romantic activities.\n\n[[Pick.Gender]]",
 		"position": {
-			"x": -354,
-			"y": 241
+			"x": -226,
+			"y": -478
 		},
 		"colorID": 0
 	},
@@ -14,8 +14,8 @@
 		"tags": "",
 		"body": "I was wondering, what is your gender?\n\n[[Girl|Pick.Gender.Girl]]\n[[Boy|Pick.Gender.Boy]]\n[[Apple|Pick.Gender.Apple]]",
 		"position": {
-			"x": -101,
-			"y": 241
+			"x": 35,
+			"y": -493
 		},
 		"colorID": 0
 	},
@@ -24,8 +24,8 @@
 		"tags": "",
 		"body": "<<set $isGirl to 1>>\n\nOk Miss!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 151,
-			"y": 239
+			"x": 287,
+			"y": -495
 		},
 		"colorID": 0
 	},
@@ -34,8 +34,8 @@
 		"tags": "",
 		"body": "<<set $isBoy to 1>>\n\nOk, mister!!!\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 152,
-			"y": 470
+			"x": 288,
+			"y": -264
 		},
 		"colorID": 0
 	},
@@ -44,18 +44,18 @@
 		"tags": "",
 		"body": "<<set $isApple to 1>>\n\nWoof, might be need to be careful around these horses, then.\n\nThey might get... bitey...\n\n[[Pick.Horse.Intro]]",
 		"position": {
-			"x": 157,
-			"y": 769
+			"x": 288,
+			"y": -19
 		},
 		"colorID": 0
 	},
 	{
 		"title": "End",
 		"tags": "",
-		"body": "<<if $isApple is 1>>\n    Well, let's take our first bite, apple!!\n<<endif>>\n\n<<if $isGirl is 1>>\n    Well, let's get on with it, miss!!\n<<endif>>\n\n<<if $isBoy is 1>>\n    Well, let's get on with it, mister!\n<<endif>>\n\n<<show Background main>>",
+		"body": "<<if $isApple is 1>>\n    Well, let's take our first bite, apple!!\n<<elseif $isGirl is 1>>\n    Well, let's get on with it, miss!!\n<<elseif $isBoy is 1>>\n    Well, let's get on with it, mister!\n<<endif>>\n\n<<show Background main>>\n\n<<run Dialog field>>",
 		"position": {
-			"x": 1981,
-			"y": 118
+			"x": 2155,
+			"y": -764
 		},
 		"colorID": 0
 	},
@@ -64,8 +64,8 @@
 		"tags": "",
 		"body": "Next, we need to pick which horse to woo!\n\nWe have quite the spread of choices, hopefully there's one you like!\n\n\n[[Pick.Horse]]",
 		"position": {
-			"x": 439,
-			"y": 241
+			"x": 575,
+			"y": -493
 		},
 		"colorID": 0
 	},
@@ -74,8 +74,8 @@
 		"tags": "",
 		"body": "Pick a horse!!!\n\n[[Regular Brown Horse|Confirm.Brown]]\n[[Special Striped Horse|Confirm.Striped]]\n[[Bancho Tough Horse|Confirm.Bancho]]",
 		"position": {
-			"x": 695,
-			"y": 246
+			"x": 864,
+			"y": -490
 		},
 		"colorID": 0
 	},
@@ -84,8 +84,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"brown\">>\n\n<<walk Horse center>>\n<<switch Horse brown>>\n\nRegular Brown Horse.\nLikes: Apples\nDislikes: Spurs\n\nIs this your choice?\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 978,
-			"y": 168
+			"x": 1114,
+			"y": -566
 		},
 		"colorID": 0
 	},
@@ -94,8 +94,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"striped\">>\n\n<<walk Horse center>>\n<<switch Horse striped>>\n\nSpecial Striped Horse\nLikes: Hay\nDislikes: Getting Wet\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 980,
-			"y": 398
+			"x": 1116,
+			"y": -336
 		},
 		"colorID": 0
 	},
@@ -104,8 +104,8 @@
 		"tags": "",
 		"body": "<<set $horse to \"bancho\">>\n\n<<walk Horse center>>\n<<switch Horse bancho>>\n\nBancho Tough Horse\nLikes: Violence, Money\nDislikes: Apples\n\n[[Horse.Confirm]]",
 		"position": {
-			"x": 995,
-			"y": 663
+			"x": 1131,
+			"y": -71
 		},
 		"colorID": 0
 	},
@@ -114,8 +114,8 @@
 		"tags": "",
 		"body": "Well in that case...\n\n<<walk Horse left>>\n\n[[Pick.Horse]]",
 		"position": {
-			"x": 927,
-			"y": -105
+			"x": 1063,
+			"y": -839
 		},
 		"colorID": 0
 	},
@@ -124,8 +124,8 @@
 		"tags": "",
 		"body": "Hmm... \"$horse\", what a good choice!\n\n<<vibrate Horse>>\n\n[[End]]",
 		"position": {
-			"x": 1656,
-			"y": 119
+			"x": 1792,
+			"y": -615
 		},
 		"colorID": 0
 	},
@@ -134,8 +134,118 @@
 		"tags": "",
 		"body": "Is this your choice?\n\n[[Yes|Horse.Picked]]\n[[No|Deny.Horse]]",
 		"position": {
-			"x": 1335,
-			"y": 97
+			"x": 1471,
+			"y": -637
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Field",
+		"tags": "",
+		"body": "Alright! Here we are! An idyllic field. Perfect for meeting a horse.\n\n<<fade SmallHorse in>>\n\nThere's figure in the distance, grazing. Could it be? Your dream horse?\n\n[[Slow Approach|Approach.Slow]]\n[[Sprint At Horse Screaming|Approach.Fast]]\n\n\n<<if $isApple is 1>>\n    [[Act Natural|Approach.Apple]]\n<<else>>\n    [[Pretend to be an Apple|Approach.Apple]]\n<<endif>>\n",
+		"position": {
+			"x": -224,
+			"y": 446
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Slow",
+		"tags": "",
+		"body": "<<set $approach to \"slow\">>\n\nYou slowly and quietly approach the horse, making sure not to spook them...\n\n[[Approach.Picked.Branch]]",
+		"position": {
+			"x": 88,
+			"y": 289
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Fast",
+		"tags": "",
+		"body": "<<shake Screen>>\n\n<<set $approach to \"fast\">>\n\nYOU RUN AND SCREAM AT THE HORSE TO ESTABLISH DOMINENCE.\n\n[[Approach.Picked.Branch]]",
+		"position": {
+			"x": 134,
+			"y": 518
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Apple",
+		"tags": "",
+		"body": "<<set $approach to \"apple\">>\r\n\r\nYou curl up into a ball and try to look as red and applish as you can. \r\n\r\nThe horse approaches.\r\n\r\n[[Approach.Picked.Branch]]",
+		"position": {
+			"x": 107,
+			"y": 767
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Picked.Branch",
+		"tags": "",
+		"body": "<<if $horse == \"horse\">>\n    [[Approach.Picked]]\n<<else>>\n    [[Approach.NotPicked]]\n<<endif>>",
+		"position": {
+			"x": 482,
+			"y": 477
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Picked",
+		"tags": "",
+		"body": "It's the brown horse. So stunning, in their beauty. You wonder how it's possible\r\nAnything could be so horse, or so brown.\r\n\r\n[[Approach.Effect.Branch]]",
+		"position": {
+			"x": 810,
+			"y": 311
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.NotPicked",
+		"tags": "",
+		"body": "Oh, it's the brown horse. It turns out your previous choice didn't matter.\r\nThe cracks are appearing in the illusion of choice, oh no!!!\r\n\r\n[[Approach.Effect.Branch]]",
+		"position": {
+			"x": 797,
+			"y": 579
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Effect.Branch",
+		"tags": "",
+		"body": "<<if $approach == \"slow\">>\n    [[Approach.Effect.Slow]]\n<<elseif $approach == \"fast\">>\n    [[Approach.Effect.Fast]]\n<<elseif $approach == \"apple\">>\n    [[Approach.Effect.Apple]]\n<<endif>>\n\n// gonna throw a default here in case it isn't set right\n[[Approach.Effect.Slow]]\n\n",
+		"position": {
+			"x": 1099,
+			"y": 473
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Effect.Slow",
+		"tags": "",
+		"body": "~Slow effect",
+		"position": {
+			"x": 1366,
+			"y": 305
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Effect.Fast",
+		"tags": "",
+		"body": "~Fast Effect",
+		"position": {
+			"x": 1385,
+			"y": 535
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Approach.Effect.Apple",
+		"tags": "",
+		"body": "~Apple Effect",
+		"position": {
+			"x": 1381,
+			"y": 758
 		},
 		"colorID": 0
 	}
