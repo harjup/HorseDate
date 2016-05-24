@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-using DialoguerCore;
-using DialoguerEditor;
 using UnityEngine.UI;
 using Yarn.Unity;
 
